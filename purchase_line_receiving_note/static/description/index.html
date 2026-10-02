@@ -1,109 +1,134 @@
-<!-- TITLE SECTION -->
-<section class="oe_container">
-    <div class="oe_row oe_spaced">
-        <h2 class="oe_slogan" style="color: #015d65; font-size: 32px; font-weight: bold; margin-top: 15px;"><b>Purchase Line Receiving Note</b></h2>
-        <h3 class="oe_slogan" style="color: #4a5568; font-size: 16px; margin-top: 10px; margin-bottom: 20px; line-height: 1.5;">Line-by-line product receiving instructions transferred automatically from Purchase Orders to Incoming Receipts</h3>
-        <div class="text-center" style="margin-bottom: 15px;">
-            <span style="background-color: #015d65; color: #ffffff; padding: 5px 15px; border-radius: 15px; font-size: 13px; font-weight: bold; margin: 3px; display: inline-block;">Community</span>
-            <span style="background-color: #015d65; color: #ffffff; padding: 5px 15px; border-radius: 15px; font-size: 13px; font-weight: bold; margin: 3px; display: inline-block;">Enterprise</span>
-            <span style="background-color: #015d65; color: #ffffff; padding: 5px 15px; border-radius: 15px; font-size: 13px; font-weight: bold; margin: 3px; display: inline-block;">Odoo.sh</span>
-            <span style="background-color: #00a99d; color: #ffffff; padding: 5px 15px; border-radius: 15px; font-size: 13px; font-weight: bold; margin: 3px; display: inline-block;">Odoo 20.0</span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Line Receiving Note | Odoo Apps</title>
+    <meta name="description" content="Transfer product-wise receiving notes from Purchase Order lines to incoming receipt stock moves in Odoo 20. Preserve notes across partial receipts and backorders.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4 mb-5">
+
+    <!-- Header Card -->
+    <section id="dev_intro" class="mt-2 mb-4">
+        <div class="card shadow-lg p-4" style="border-radius: 14px; border: none;">
+            <div class="card-body text-center">
+                <h2 class="card-title" style="color: #015d65; font-weight: bold; font-size: 28px;">
+                    Purchase Line Receiving Note
+                </h2>
+                <p class="card-text mt-3" style="color: #5a5a5a; font-size: 16px; line-height: 1.8; text-align: justify;">
+                    The <strong>Purchase Line Receiving Note</strong> module allows purchasing teams to add specific, product-level receiving instructions directly onto Purchase Order lines.
+                    When a Purchase Order is confirmed, these instructions automatically copy to the corresponding incoming stock moves (<code>stock.move</code>). Warehouse staff can view these receiving instructions as read-only notes on the incoming receipt screen. Instructions remain preserved even when partial receipts create backorders.
+                </p>
+                <div class="row my-3 text-center">
+                    <div class="col">
+                        <span class="btn text-white px-3 py-1 m-1" style="background-color: #015d65; border-radius: 6px; font-weight: 600; font-size: 14px;">
+                            Community
+                        </span>
+                        <span class="btn text-white px-3 py-1 m-1" style="background-color: #015d65; border-radius: 6px; font-weight: 600; font-size: 14px;">
+                            Enterprise
+                        </span>
+                        <span class="btn text-white px-3 py-1 m-1" style="background-color: #015d65; border-radius: 6px; font-weight: 600; font-size: 14px;">
+                            Odoo.sh
+                        </span>
+                        <span class="btn text-white px-3 py-1 m-1" style="background-color: #00a99d; border-radius: 6px; font-weight: 600; font-size: 14px;">
+                            Odoo 20.0
+                        </span>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- OVERVIEW SECTION -->
-<section class="oe_container oe_dark">
-    <div class="oe_row oe_spaced">
-        <h2 class="oe_slogan" style="color: #015d65; font-size: 26px; font-weight: bold;"><b>Overview</b></h2>
-        <div style="font-size: 15px; color: #333333; line-height: 1.8; text-align: justify; padding: 0 15px;">
-            <p>
-                The <strong>Purchase Line Receiving Note</strong> module allows purchasing teams to add specific, product-level receiving instructions directly onto Purchase Order lines.
-                When a Purchase Order is confirmed, these instructions automatically copy to the corresponding incoming stock moves (<code>stock.move</code>).
-            </p>
-            <p>
-                Warehouse staff can view these receiving instructions as read-only notes on the incoming receipt screen. Instructions remain preserved even when partial receipts create backorders.
-            </p>
+    <!-- Features -->
+    <section id="features" class="mt-4 mb-5">
+        <div class="text-center mb-4">
+            <h3 style="color: #015d65; font-weight: bold;">Key Features</h3>
         </div>
-    </div>
-</section>
+        <ul class="list-unstyled" style="font-weight: 500; font-size: 16px; color: #323232;">
+            <li class="shadow-lg rounded mb-3 p-3 bg-white" style="border-left: 5px solid #015d65;">
+                <strong style="color: #015d65;">PO Line Receiving Note Field:</strong> Add optional receiving instructions on Purchase Order lines in both list and form views.
+            </li>
+            <li class="shadow-lg rounded mb-3 p-3 bg-white" style="border-left: 5px solid #015d65;">
+                <strong style="color: #015d65;">Automatic Stock Move Transfer:</strong> Instructions seamlessly copy to corresponding incoming stock moves upon PO confirmation.
+            </li>
+            <li class="shadow-lg rounded mb-3 p-3 bg-white" style="border-left: 5px solid #015d65;">
+                <strong style="color: #015d65;">Read-Only Receipt View:</strong> Warehouse personnel view receiving notes as read-only fields on incoming receipts.
+            </li>
+            <li class="shadow-lg rounded mb-3 p-3 bg-white" style="border-left: 5px solid #015d65;">
+                <strong style="color: #015d65;">Backorder Note Preservation:</strong> Partial receipts copy receiving instructions onto generated backorders automatically.
+            </li>
+            <li class="shadow-lg rounded mb-3 p-3 bg-white" style="border-left: 5px solid #015d65;">
+                <strong style="color: #015d65;">Audit &amp; Historical Integrity:</strong> Original receipt move notes remain unchanged if PO line notes are modified later.
+            </li>
+            <li class="shadow-lg rounded mb-3 p-3 bg-white" style="border-left: 5px solid #015d65;">
+                <strong style="color: #015d65;">Standard Flow Compatibility:</strong> 100% compatible with standard Odoo inventory valuation, reservation, and picking validation.
+            </li>
+        </ul>
+    </section>
 
-<!-- KEY FEATURES SECTION -->
-<section class="oe_container">
-    <div class="oe_row oe_spaced">
-        <h2 class="oe_slogan" style="color: #015d65; font-size: 26px; font-weight: bold;"><b>Key Features</b></h2>
-        <div style="padding: 0 20px;">
-            <ul style="font-size: 15px; color: #333333; line-height: 2;">
-                <li><b>PO Line Receiving Note Field:</b> Add optional receiving instructions on Purchase Order lines in both list and form views.</li>
-                <li><b>Automatic Stock Move Transfer:</b> Instructions seamlessly copy to corresponding incoming stock moves upon PO confirmation.</li>
-                <li><b>Read-Only Receipt View:</b> Warehouse personnel view receiving notes as read-only fields on incoming receipts.</li>
-                <li><b>Backorder Note Preservation:</b> Partial receipts copy receiving instructions onto generated backorders automatically.</li>
-                <li><b>Audit &amp; Historical Integrity:</b> Original receipt move notes remain unchanged if PO line notes are modified later.</li>
-                <li><b>Standard Flow Compatibility:</b> 100% compatible with standard Odoo inventory valuation, reservation, and picking validation.</li>
-            </ul>
+    <!-- Screenshots Workflow -->
+    <section id="screenshots" class="mt-5 mb-5">
+        <div class="text-center mb-4">
+            <h3 style="color: #015d65; font-weight: bold;">Workflow &amp; Screenshots</h3>
         </div>
-    </div>
-</section>
 
-<!-- WORKFLOW STEP 1 -->
-<section class="oe_container oe_dark">
-    <div class="oe_row oe_spaced">
-        <h2 class="oe_slogan" style="color: #015d65; font-size: 24px; font-weight: bold;"><b>Step 1: Add Receiving Notes on Purchase Order Lines</b></h2>
-        <h3 class="oe_slogan" style="color: #4a5568; font-size: 15px; margin-bottom: 15px;">Go to <b>Purchase &rarr; Orders &rarr; Purchase Orders</b>. Add product-wise instructions under the "Receiving Note" column on Purchase Order lines.</h3>
-        <div class="oe_screenshot" style="text-align: center;">
-            <img src="screens/1_po_receiving_note.png" style="width: 100%; border: 1px solid #d0d0d0; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" alt="PO Line Receiving Note">
+        <div class="text-center mb-5">
+            <h4 style="color: #015d65; font-weight: bold; font-size: 19px;">Step 1: Add Receiving Notes on Purchase Order Lines</h4>
+            <p style="color: #5a5a5a; font-size: 15px;" class="mb-3">Go to <strong>Purchase &rarr; Orders &rarr; Purchase Orders</strong>. Add product-wise instructions under the <strong>"Receiving Note"</strong> column on Purchase Order lines.</p>
+            <div class="shadow-lg rounded p-3 bg-white">
+                <img src="screens/1_po_receiving_note.png" class="img-fluid rounded" alt="PO Line Receiving Note" style="width: 100%;">
+            </div>
         </div>
-    </div>
-</section>
 
-<!-- WORKFLOW STEP 2 -->
-<section class="oe_container">
-    <div class="oe_row oe_spaced">
-        <h2 class="oe_slogan" style="color: #015d65; font-size: 24px; font-weight: bold;"><b>Step 2: Automatic Transfer to Warehouse Stock Moves</b></h2>
-        <h3 class="oe_slogan" style="color: #4a5568; font-size: 15px; margin-bottom: 15px;">Upon PO confirmation, opening the incoming receipt displays the receiving notes as read-only fields on each stock move line.</h3>
-        <div class="oe_screenshot" style="text-align: center;">
-            <img src="screens/2_stock_receipt_note.png" style="width: 100%; border: 1px solid #d0d0d0; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" alt="Stock Receipt Note">
+        <div class="text-center mb-5">
+            <h4 style="color: #015d65; font-weight: bold; font-size: 19px;">Step 2: Automatic Transfer to Warehouse Stock Moves</h4>
+            <p style="color: #5a5a5a; font-size: 15px;" class="mb-3">Upon PO confirmation, opening the incoming receipt displays the receiving notes as read-only fields on each stock move line.</p>
+            <div class="shadow-lg rounded p-3 bg-white">
+                <img src="screens/2_stock_receipt_note.png" class="img-fluid rounded" alt="Stock Receipt Note" style="width: 100%;">
+            </div>
         </div>
-    </div>
-</section>
 
-<!-- WORKFLOW STEP 3 -->
-<section class="oe_container oe_dark">
-    <div class="oe_row oe_spaced">
-        <h2 class="oe_slogan" style="color: #015d65; font-size: 24px; font-weight: bold;"><b>Step 3: Preserve Receiving Notes on Backorders</b></h2>
-        <h3 class="oe_slogan" style="color: #4a5568; font-size: 15px; margin-bottom: 15px;">Validating a partial receipt preserves and carries forward the line receiving instructions onto the generated backorder receipt.</h3>
-        <div class="oe_screenshot" style="text-align: center;">
-            <img src="screens/3_backorder_note.png" style="width: 100%; border: 1px solid #d0d0d0; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" alt="Backorder Note">
+        <div class="text-center mb-5">
+            <h4 style="color: #015d65; font-weight: bold; font-size: 19px;">Step 3: Preserve Receiving Notes on Backorders</h4>
+            <p style="color: #5a5a5a; font-size: 15px;" class="mb-3">Validating a partial receipt preserves and carries forward the line receiving instructions onto the generated backorder receipt.</p>
+            <div class="shadow-lg rounded p-3 bg-white">
+                <img src="screens/3_backorder_note.png" class="img-fluid rounded" alt="Backorder Note Preserved" style="width: 100%;">
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- FAQS SECTION -->
-<section class="oe_container">
-    <div class="oe_row oe_spaced">
-        <h2 class="oe_slogan" style="color: #015d65; font-size: 26px; font-weight: bold;"><b>Frequently Asked Questions</b></h2>
-        <div style="padding: 0 20px;">
-            <p style="font-size: 16px; font-weight: bold; color: #015d65; margin-bottom: 4px;">Is the receiving note editable on the incoming receipt?</p>
-            <p style="font-size: 15px; color: #4a5568; margin-bottom: 20px;">No. The receiving note on stock moves is read-only for warehouse staff to prevent accidental alteration of purchasing instructions.</p>
-
-            <p style="font-size: 16px; font-weight: bold; color: #015d65; margin-bottom: 4px;">What happens when a partial receipt generates a backorder?</p>
-            <p style="font-size: 15px; color: #4a5568; margin-bottom: 20px;">The receiving note is automatically copied to the backorder stock move, ensuring receiving instructions remain available for remaining items.</p>
-
-            <p style="font-size: 16px; font-weight: bold; color: #015d65; margin-bottom: 4px;">Does modifying the PO line note after confirmation update existing moves?</p>
-            <p style="font-size: 15px; color: #4a5568; margin-bottom: 20px;">No. Original receipt stock moves preserve the instructions captured at PO confirmation time, maintaining historical integrity.</p>
+    <!-- FAQs -->
+    <section id="faqs" class="mt-5 mb-5">
+        <div class="text-center mb-4">
+            <h3 style="color: #015d65; font-weight: bold;">Frequently Asked Questions</h3>
         </div>
-    </div>
-</section>
+        <div class="shadow-lg rounded p-4 mb-3 bg-white" style="border-left: 5px solid #00a99d;">
+            <h5 style="color: #015d65; font-weight: bold; font-size: 16px;">Is the receiving note editable on the incoming receipt?</h5>
+            <p style="color: #5a5a5a; margin-bottom: 0; font-size: 14px;">No. The receiving note on stock moves is read-only for warehouse staff to prevent accidental alteration of purchasing instructions.</p>
+        </div>
+        <div class="shadow-lg rounded p-4 mb-3 bg-white" style="border-left: 5px solid #00a99d;">
+            <h5 style="color: #015d65; font-weight: bold; font-size: 16px;">What happens when a partial receipt generates a backorder?</h5>
+            <p style="color: #5a5a5a; margin-bottom: 0; font-size: 14px;">The receiving note is automatically copied to the backorder stock move, ensuring receiving instructions remain available for remaining items.</p>
+        </div>
+        <div class="shadow-lg rounded p-4 mb-3 bg-white" style="border-left: 5px solid #00a99d;">
+            <h5 style="color: #015d65; font-weight: bold; font-size: 16px;">Does modifying the PO line note after confirmation update existing moves?</h5>
+            <p style="color: #5a5a5a; margin-bottom: 0; font-size: 14px;">No. Original receipt stock moves preserve the instructions captured at PO confirmation time, maintaining historical integrity.</p>
+        </div>
+    </section>
 
-<!-- SUPPORT SECTION -->
-<section class="oe_container oe_dark">
-    <div class="oe_row oe_spaced text-center">
-        <h2 class="oe_slogan" style="color: #015d65; font-size: 26px; font-weight: bold;"><b>Need Help or Customization?</b></h2>
-        <h3 class="oe_slogan" style="color: #4a5568; font-size: 16px; margin-bottom: 20px;">Developed by <b>Dhara Thesiya</b> &mdash; Clean, modular, and high-performance Odoo modules.</h3>
-        <div>
-            <a href="https://dharaportfoliodoodeveloper.netlify.app/" target="_blank" style="background-color: #015d65; color: #ffffff; font-weight: bold; padding: 12px 28px; border-radius: 4px; text-decoration: none; display: inline-block; font-size: 15px; box-shadow: 0 3px 8px rgba(0,0,0,0.15);">
+    <!-- Developer Support Footer -->
+    <section id="support" class="mt-5 mb-5 text-center">
+        <div class="shadow-lg rounded p-4" style="background: linear-gradient(135deg, #013d44 0%, #015d65 100%); color: white;">
+            <h4 style="font-weight: bold; font-size: 22px;">Developed by Dhara Thesiya</h4>
+            <p style="opacity: 0.9; font-size: 15px; margin-bottom: 16px;">Providing clean, modular, and high-performance Odoo modules.</p>
+            <a href="https://dharaportfoliodoodeveloper.netlify.app/" target="_blank" class="btn btn-light px-4 py-2" style="font-weight: 600; color: #015d65; border-radius: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
                 Visit Portfolio / GitHub
             </a>
         </div>
-    </div>
-</section>
+    </section>
+
+</div>
+</body>
+</html>
