@@ -31,7 +31,7 @@ Developed by Dhara Thesiya
         "views/purchase_order_views.xml",
         "views/stock_picking_views.xml",
     ],
-    "images": ["static/description/icon.png"],
+    "images": ["static/description/banner.png"],
     "installable": True,
     "application": False,
     "auto_install": False,
