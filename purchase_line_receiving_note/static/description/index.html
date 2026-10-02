@@ -7,7 +7,6 @@
     <meta name="description" content="Transfer product-wise receiving notes from Purchase Order lines to incoming receipt stock moves in Odoo 20. Preserve notes across partial receipts and backorders.">
     <meta name="keywords" content="odoo purchase line receiving note, purchase order receiving instructions, stock move receiving note, warehouse receipt instructions odoo">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <div class="container my-4" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #323232;">
@@ -15,19 +14,12 @@
         :root { --primary: #015d65; --primary-light: #e8f5f6; --accent: #00a99d; --text-dark: #323232; --text-muted: #5a5a5a; }
         .section-title { color: var(--primary); font-weight: 700; letter-spacing: 0.5px; }
         .separator { width: 80px; height: 3px; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 2px; margin: 8px auto 20px auto; }
-        .hero-banner { background: linear-gradient(135deg, #013d44 0%, #015d65 50%, #017a85 100%); border-radius: 16px; padding: 40px 35px; color: white; position: relative; overflow: hidden; }
-        .hero-banner h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
-        .hero-banner .subtitle { font-size: 1.1rem; opacity: 0.9; margin-bottom: 20px; }
-        .badge-compat { background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35); color: white; padding: 6px 16px; border-radius: 20px; font-size: 13px; margin: 4px; display: inline-block; font-weight: 600; }
-        .company-info-hero { margin-top: 20px; font-size: 14px; opacity: 0.9; }
-        .company-info-hero a { color: #80e0e8; text-decoration: none; font-weight: 600; }
-        .company-info-hero a:hover { color: white; text-decoration: underline; }
         .feature-card { border: none; border-radius: 12px; padding: 24px 20px; background: white; box-shadow: 0 4px 20px rgba(1,93,101,0.08); height: 100%; }
-        .feature-icon { width: 52px; height: 52px; border-radius: 12px; background: var(--primary-light); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-size: 22px; color: var(--primary); }
+        .feature-icon { width: 52px; height: 52px; border-radius: 12px; background: var(--primary-light); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; color: var(--primary); }
         .feature-card h5 { color: var(--primary); font-weight: 700; font-size: 16px; margin-bottom: 8px; }
         .feature-card p { color: var(--text-muted); font-size: 14px; line-height: 1.6; margin: 0; }
         .advantage-item { background: white; border-radius: 10px; padding: 14px 20px; margin-bottom: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); display: flex; align-items: flex-start; gap: 12px; font-size: 15px; font-weight: 500; color: var(--text-dark); border-left: 4px solid var(--primary); }
-        .advantage-item .fa { color: var(--primary); margin-top: 3px; font-size: 16px; flex-shrink: 0; }
+        .check-badge { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; background: var(--primary-light); color: var(--primary); border-radius: 50%; font-size: 12px; font-weight: bold; flex-shrink: 0; margin-top: 2px; }
         .workflow-card { background: white; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #e9ecef; }
         .workflow-card .step-title { font-size: 18px; color: var(--primary); font-weight: 700; margin-bottom: 8px; }
         .workflow-card .step-desc { color: var(--text-muted); font-size: 15px; margin-bottom: 16px; }
@@ -76,14 +68,14 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <div class="advantage-item"><i class="fa fa-check-circle"></i><span>Enter product-specific receiving instructions directly on PO lines.</span></div>
-                <div class="advantage-item"><i class="fa fa-check-circle"></i><span>Automatic transfer of notes to incoming stock moves upon PO confirmation.</span></div>
-                <div class="advantage-item"><i class="fa fa-check-circle"></i><span>Read-only visibility for warehouse receiving staff on picking forms.</span></div>
+                <div class="advantage-item"><span class="check-badge">✓</span><span>Enter product-specific receiving instructions directly on PO lines.</span></div>
+                <div class="advantage-item"><span class="check-badge">✓</span><span>Automatic transfer of notes to incoming stock moves upon PO confirmation.</span></div>
+                <div class="advantage-item"><span class="check-badge">✓</span><span>Read-only visibility for warehouse receiving staff on picking forms.</span></div>
             </div>
             <div class="col-md-6">
-                <div class="advantage-item"><i class="fa fa-check-circle"></i><span>Preserves receiving notes across partial receipts and backorders.</span></div>
-                <div class="advantage-item"><i class="fa fa-check-circle"></i><span>Maintains receipt note integrity if PO line notes are modified later.</span></div>
-                <div class="advantage-item"><i class="fa fa-check-circle"></i><span>Zero impact on standard Odoo stock reservation and validation logic.</span></div>
+                <div class="advantage-item"><span class="check-badge">✓</span><span>Preserves receiving notes across partial receipts and backorders.</span></div>
+                <div class="advantage-item"><span class="check-badge">✓</span><span>Maintains receipt note integrity if PO line notes are modified later.</span></div>
+                <div class="advantage-item"><span class="check-badge">✓</span><span>Zero impact on standard Odoo stock reservation and validation logic.</span></div>
             </div>
         </div>
     </section>
@@ -98,42 +90,54 @@
         <div class="row g-3">
             <div class="col-md-6 col-lg-4">
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fa fa-pencil-square-o"></i></div>
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                    </div>
                     <h5>PO Line Receiving Note Field</h5>
                     <p>Add optional receiving instructions on Purchase Order lines in both list and form views.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fa fa-exchange"></i></div>
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
+                    </div>
                     <h5>Automatic Stock Move Transfer</h5>
                     <p>Instructions seamlessly copy to corresponding incoming stock moves upon PO confirmation.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fa fa-eye"></i></div>
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </div>
                     <h5>Read-Only Receipt View</h5>
                     <p>Warehouse personnel view receiving notes as read-only fields on incoming receipts.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fa fa-files-o"></i></div>
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                    </div>
                     <h5>Backorder Note Preservation</h5>
                     <p>Partial receipts copy receiving instructions onto generated backorders automatically.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fa fa-shield"></i></div>
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
                     <h5>Audit &amp; Historical Integrity</h5>
                     <p>Original receipt move notes remain unchanged if PO line notes are modified later.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fa fa-check-circle-o"></i></div>
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
                     <h5>Standard Flow Compatibility</h5>
                     <p>100% compatible with standard Odoo inventory valuation, reservation, and picking validation.</p>
                 </div>
@@ -151,7 +155,7 @@
 
         <!-- Step 1 -->
         <div class="workflow-card">
-            <div class="step-title"><i class="fa fa-pencil"></i> Step 1: Add Receiving Notes on Purchase Order Lines</div>
+            <div class="step-title">Step 1: Add Receiving Notes on Purchase Order Lines</div>
             <p class="step-desc">Go to <strong>Purchase &rarr; Orders &rarr; Purchase Orders</strong>. Add product-wise instructions under the <em>"Receiving Note"</em> column on Purchase Order lines.</p>
             <div class="text-center">
                 <img src="screens/1_po_receiving_note.png" alt="Purchase Order Line Receiving Note">
@@ -160,7 +164,7 @@
 
         <!-- Step 2 -->
         <div class="workflow-card">
-            <div class="step-title"><i class="fa fa-truck"></i> Step 2: Automatic Transfer to Warehouse Stock Moves</div>
+            <div class="step-title">Step 2: Automatic Transfer to Warehouse Stock Moves</div>
             <p class="step-desc">Upon PO confirmation, opening the incoming receipt displays the receiving notes as read-only fields on each stock move line.</p>
             <div class="text-center">
                 <img src="screens/2_stock_receipt_note.png" alt="Read-Only Receiving Note on Stock Receipts">
@@ -169,7 +173,7 @@
 
         <!-- Step 3 -->
         <div class="workflow-card">
-            <div class="step-title"><i class="fa fa-files-o"></i> Step 3: Preserve Receiving Notes on Backorders</div>
+            <div class="step-title">Step 3: Preserve Receiving Notes on Backorders</div>
             <p class="step-desc">Validating a partial receipt preserves and carries forward the line receiving instructions onto the generated backorder receipt.</p>
             <div class="text-center">
                 <img src="screens/3_backorder_note.png" alt="Preserve Receiving Notes on Backorders">
@@ -184,15 +188,15 @@
             <div class="separator"></div>
         </div>
         <div class="faq-card">
-            <h6><i class="fa fa-question-circle"></i> Is the receiving note editable on the incoming receipt?</h6>
+            <h6>Is the receiving note editable on the incoming receipt?</h6>
             <p>No. The receiving note on stock moves is read-only for warehouse staff to prevent accidental alteration of purchasing instructions.</p>
         </div>
         <div class="faq-card">
-            <h6><i class="fa fa-question-circle"></i> What happens when a partial receipt generates a backorder?</h6>
+            <h6>What happens when a partial receipt generates a backorder?</h6>
             <p>The receiving note is automatically copied to the backorder stock move, ensuring receiving instructions remain available for remaining items.</p>
         </div>
         <div class="faq-card">
-            <h6><i class="fa fa-question-circle"></i> Does modifying the PO line note after confirmation update existing moves?</h6>
+            <h6>Does modifying the PO line note after confirmation update existing moves?</h6>
             <p>No. Original receipt stock moves preserve the instructions captured at PO confirmation time, maintaining historical integrity.</p>
         </div>
     </section>
@@ -200,10 +204,10 @@
     <!-- FOOTER BANNER -->
     <section id="contact-footer" class="mt-5">
         <div class="contact-footer">
-            <h4><i class="fa fa-handshake-o"></i> Developed by Dhara Thesiya</h4>
+            <h4>Developed by Dhara Thesiya</h4>
             <p style="opacity: 0.9; margin-bottom: 20px;">Providing clean, modular, and high-performance Odoo modules and customizations.</p>
             <div>
-                <a href="https://dharaportfoliodoodeveloper.netlify.app/" target="_blank" class="contact-item"><i class="fa fa-globe"></i> Visit Portfolio / GitHub</a>
+                <a href="https://dharaportfoliodoodeveloper.netlify.app/" target="_blank" class="contact-item">Visit Portfolio / GitHub</a>
             </div>
         </div>
     </section>
