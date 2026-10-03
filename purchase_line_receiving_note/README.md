@@ -1,11 +1,11 @@
 # Purchase Line Receiving Note
 
 **Technical Name:** `purchase_line_receiving_note`  
-**Odoo Version:** 20.0 / 19.0  
-**License:** LGPL-3  
+**Odoo Version:** 20.0  
+**License:** OPL-1  
 **Category:** Inventory/Purchase  
 **Author:** Dhara Thesiya  
-**Price:** Free (€0.00)
+**Price:** $2.00 USD
 
 ---
 
@@ -77,4 +77,4 @@ Warehouse receiving staff can view these instructions directly on the receipt sc
 
 - **Author:** Dhara Thesiya
 - **Website / Portfolio:** [https://dharaportfoliodoodeveloper.netlify.app/](https://dharaportfoliodoodeveloper.netlify.app/)
-- **License:** GNU Lesser General Public License v3.0 (LGPL-3)
+- **License:** Odoo Proprietary License v1.0 (OPL-1)
